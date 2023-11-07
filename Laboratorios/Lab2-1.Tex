@@ -1,0 +1,139 @@
+\documentclass{article}
+
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage[hidelinks]{hyperref}
+\usepackage{setspace}
+\usepackage{mathtools}
+\usepackage{amsfonts} % para símbolo de los naturales
+\usepackage{SIunitx}
+\usepackage{enumitem}
+\usepackage[spanish, es-noshorthands, es-noquoting]{babel}
+\usepackage{xcolor}
+\pagestyle{fancy}
+\fancyhf{}
+\setlength{\headheight}{70.38103pt}
+\rhead{\textit{David G., Laura R., Luisa R., María V.}}
+\lhead{\includegraphics[width = 4cm]{\logo}}
+\lfoot{Página \thepage}
+\rfoot{Resonancia en un resorte}
+\renewcommand{\headrule}{\hbox to \headwidth{\color{rojoEci}\leaders\hrule height \headrulewidth\hfill}}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\hyphenpenalty=10000
+
+\newcommand{\logo}{"C:/Users/lalal/OneDrive/Documentos/Universidad/logo-eci.png"}
+
+\newcommand{\titlename}{Resonancia \\[10pt] En Un Resorte}%
+\renewcommand{\author}{{David Gómez, Laura Rincón, Luisa Rodríguez, María Vivas}}
+
+\definecolor{rojoEci}{RGB}{225, 70, 49}
+
+% Temporal func
+
+\NewDocumentCommand{\partiald}{ o m m }%
+    {
+        \IfNoValueTF{#1}
+        {
+            \dfrac{{\partial} #2}{{\partial} #3}
+        }{
+            \dfrac{{\partial}^{#1} #2}{\partial {#3}^{#1}}
+        }        
+    }
+
+% Enumi func
+
+\renewcommand{\labelenumi}{(\Roman{enumi})}
+\renewcommand{\labelenumii}{(\roman{enumii})}
+
+\doublespacing
+\begin{document}
+\begin{titlepage}
+    \begin{center}
+        \vspace{1cm}
+
+        \textbf{\Huge{\titlename}}
+
+        \vspace{1.5cm}
+
+        \textbf{\large{\author}}
+
+        \vspace{3cm}
+
+        \includegraphics[width=0.8\textwidth]{\logo}
+        
+        \vfill
+
+        Física de Calor y Ondas
+
+        Escuela Colombiana de Ingeniería Julio Garavito 
+
+        \today
+    \end{center}
+\end{titlepage}
+
+\clearpage
+\tableofcontents
+\clearpage
+
+\section{Fundamentación}
+
+La resonancia mecánica es un fenómeno que ocurre cuando 
+se le aplica cierta fuerza armónica a un oscilador armónico 
+con una frecuencia angular $w_n$ específica,
+que hace que el sistema mecánico amortiguado alcance su pico
+de amplitud. 
+
+Las fuerzas que acúan en el sistema son una fuerza armónica 
+$\vec{F}_A$ y una fuerza de fricción $\vec{F}_f$, donde
+$\vec{F}_a = \vec{F}_Asen(wt)$ y 
+$\vec{F}_f = -b\vec{v}$, siendo b el coeficiente de 
+proporcionalidad entre fricción y velocidad para $v$ pequeñas.
+
+La amplitud en el sistema está dada por: 
+\[A(w) = \frac{F_A/m}{\sqrt{(w^2 - \frac{k}{m})^2 + (\frac{b}{m}w)^2 }}\]
+y la amplitud máxima es en $A(w_{res})$:
+\[A(w_{res}) = \frac{F_A/m}{\sqrt{((w_{res})^2 - \frac{k}{m})^2} + (\frac{b}{m}w_{res})^2}\]
+donde $w_{res} = \sqrt{\dfrac{k}{m}}$ y $k = \dfrac{mg}{\Delta l_0}$
+
+\clearpage
+
+\section{Descripción}
+
+En este laboratorio, el montaje se hizo de la siguiente manera:
+
+Un resorte con una masa colgando de una polea. El otro 
+extremo de la polea está conectada a un motor impulsado por un
+circuito DC. Este motor es el que aplica la fuerza armónica.
+Con un potenciómetro se mide el voltaje que se le aplica al
+motor. Se toma el voltaje proporcional a la frecuencia angular.
+
+
+\section{Mediciones}
+
+\includegraphics[width=0.3\textwidth]{C:/Users/lalal/OneDrive/Documentos/Universidad/FCOP/Laboratorios/Sin título.png}
+
+Se tiene que $W_{res}$ teórico es \[W_{res} = \sqrt{\frac{k}{m}}\]
+que reemplazando con los datos dados 
+\[W_{res} = \sqrt{\frac{0,388}{0,01387}} = 0,1673\]
+
+y $w_{res}$ experimental es 
+
+\[w_{res(exp)} = \frac{2\pi}{T}\]
+
+que reemplazando con $T = 0,44$, nos queda que 
+\[w_{res(exp)} = \frac{2\pi}{0,44} = 14,27\]
+
+
+\section{Resultados}
+
+Se logró observar el efecto de resonancia en algún
+voltaje. Sin embargo, el resorte se movía tan 
+violentamente que era muy complicado reconocer 
+la medida de la amplitud y el tiempo de oscilación. Por este motivo, se puede 
+decir que experimentalmente, al ser las medidas a ojo, 
+tienen un error muy grande, y así es como el voltaje 
+y la frecuencia halladas teóricamente distan tanto del
+resutado experimental. 
+ \end{document}
