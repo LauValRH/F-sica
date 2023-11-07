@@ -4,3 +4,4 @@
 !**/*.tex
 **/build/*
 !**/build/*.pdf
+**/*.png
