@@ -1,0 +1,156 @@
+\documentclass{article}
+
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage[hidelinks]{hyperref}
+\usepackage{setspace}
+\usepackage{mathtools}
+\usepackage{amsfonts} % para símbolo de los naturales
+\usepackage{SIunitx}
+\usepackage{enumitem}
+\usepackage[spanish, es-noshorthands, es-noquoting]{babel}
+\usepackage{xcolor}
+\pagestyle{fancy}
+\fancyhf{}
+\setlength{\headheight}{70.38103pt}
+\rhead{\textit{David G., Laura R., Luisa R., María V.}}
+\lhead{\includegraphics[width = 4cm]{\logo}}
+\lfoot{Página \thepage}
+\rfoot{Calorimetría}
+\renewcommand{\headrule}{\hbox to \headwidth{\color{rojoEci}\leaders\hrule height \headrulewidth\hfill}}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\hyphenpenalty=10000
+
+\newcommand{\logo}{"C:/Users/lalal/OneDrive/Documentos/Universidad/logo-eci.png"}
+
+\newcommand{\titlename}{Calorimetría}%
+\renewcommand{\author}{{David Gómez, Laura Rincón, Luisa Rodríguez, María Vivas}}
+
+\definecolor{rojoEci}{RGB}{225, 70, 49}
+
+% Temporal func
+
+\NewDocumentCommand{\partiald}{ o m m }%
+    {
+        \IfNoValueTF{#1}
+        {
+            \dfrac{{\partial} #2}{{\partial} #3}
+        }{
+            \dfrac{{\partial}^{#1} #2}{\partial {#3}^{#1}}
+        }        
+    }
+
+% Enumi func
+
+\renewcommand{\labelenumi}{(\Roman{enumi})}
+\renewcommand{\labelenumii}{(\roman{enumii})}
+
+\doublespacing
+\begin{document}
+\begin{titlepage}
+    \begin{center}
+        \vspace{1cm}
+
+        \textbf{\Huge{\titlename}}
+
+        \vspace{1.5cm}
+
+        \textbf{\large{\author}}
+
+        \vspace{3cm}
+
+        \includegraphics[width=0.8\textwidth]{\logo}
+        
+        \vfill
+
+        Física de Calor y Ondas
+
+        Escuela Colombiana de Ingeniería Julio Garavito 
+
+        \today
+    \end{center}
+\end{titlepage}
+
+\section{Experimento}
+
+El experimento consiste en calcular la capacidad calórica que tiene
+un cubo de un material específico a partir de la temperatura del Estado
+de equilibrio que se alcanza cuando se mete el cubo a $\SI{50}{\degreeCelsius}$
+en un beacker con agua a temperatura ambiente.
+
+\section{Teoría}
+
+Idealmente, la energía tipo calor que tiene el cubo
+$Q_c$ dependería únicamente de la energía tipo calor que le transmite
+al agua y al beacker, es decir, no hay fugas de energía hacia el entorno
+por lo que idealmente podemos definir lo siguiente:
+
+\begin{align*}
+    & Q_c = Q_H + Q_b\\
+    \equiv& \left<Q_c > Q_h \text{, entonces es negativo porque transfiere} \right> \\
+    & - m_c c_c (T_f - T_{cf}) = m_h c_h(T_f - T_a) + m_b c_b (T_f-T_a)\\
+    \equiv& \left< Despejando c_c \right>\\
+    & c_c = -\frac{(m_Hc_H + m_bc_b)(T_f-T_a)}{m_c(T_{cf}-T_{f})}\\
+    \equiv&\\
+    & c_c = \frac{(m_hc_h + m_bc_b)(T_f-T_a)}{m_c(T_f-T_{cf})}
+\end{align*}
+
+Sin embargo, a nivel experimental eso no se puede lograr, es decir,
+no se puede despreciar tan facilmente la transferencia de enrgía 
+tipo calor al entorno, por lo que toca hacer una serie de cálculos
+extra. Como indica la imagen, en condiciones ideales 
+se debería llegar a que después de un cierto tiempo $t_1$ el sistema 
+cubo con el sistema agua + beacker entran en equilibrio a una temperatura
+$T_f$. Pero al haber transferencia de calor hacia el entorno, primero
+no se puede llegar al valor $T_f$ y segundo, el sistema no entrará en equilibrio
+a menos que llegue a la temperatura ambiente nuevamente. Aún así, podemos 
+estimar cuál es el $T_f$ ideal calculando integrales y relaciones.
+
+
+\includegraphics[width=1\textwidth]{C:/Users/lalal/OneDrive/Documentos/Universidad/FCOP/Laboratorios/GraficaTemperaturas.png}
+
+
+Tenemos, por la Ley de Enfriamiento de Newton que:
+
+\begin{align*}
+    & \frac{dQ_E}{dt} = K(T_A(t) - T_a)\\
+    \Rightarrow& \left<\text{Integrando} \right> \\
+    & Q_E = \int_{0}^{Qt} dQ_E = \int_{0}^{t} K(T_A(t) - T_a) dt\\
+    \equiv& \\
+    & Q_{E_1} = K\int_{0}^{t_1} (T_A(t) - T_a)dt = KA_1\\
+    \land& \left< \text{De forma análoga} \right>\\
+    & Q_{E_2} = K\int_{t_1}^{t_2} (T'_A (t) - T_A)dt = KA_2
+\end{align*}
+
+$A_1$ y $A_2$ los podemos calcular, ya que experimentalmente se puede 
+aproximar el comportamiento de la gráfica. $\Delta T_2$ lo podemos calcular
+ya que sería medir la temperatura en $t_1$, que sería la temperatura máxima que 
+alcanza el sistema experimentalmente; luego medir la temperatura en el tiempo $t_2$ y 
+restarlas.
+Además tenemos que $\Delta T_1$ es a $\Delta T_2$ como $A_1$ es a $A_2$, de esta manera
+podemos hayar $\Delta T_1$:
+
+\begin{align*}
+    & \frac{\Delta T_1}{\Delta T_2} = \frac{A_1}{A_2}\\
+    \equiv& \\
+    & \Delta T_1 = T_2 \frac{A_1}{A_2}
+\end{align*}
+
+Ya podemos calcular la temperatura de equilibrio que se alcanza
+idealmente en el sistema. Como se ve en la imagen:
+
+\[
+    T_f = T_1 + T_{fR} = T_2 \frac{A_1}{A_2} + T(t_1)
+\]
+Así, ya podemos encontrar las constante calórica del cubo $c_c$.
+
+
+
+
+
+\end{document}
